@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ontmoet de Oudegracht | Utrechts Archief</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="experience">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 4l3.8 12.2L40 20l-12.2 3.8L24 36l-3.8-12.2L8 20l12.2-3.8L24 4z"/><circle cx="24" cy="24" r="5"/></svg>
+        </span>
+        <span>HET UTRECHTS ARCHIEF</span>
+      </div>
+      <div class="title-block">
+        <p>1929 — 2027</p>
+        <h1>Ontmoet de Oudegracht</h1>
+      </div>
+      <button class="sound-button" id="soundButton" type="button" aria-label="Geluid aanzetten">
+        <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm5.5 2.5a7 7 0 010 9M19 5a10 10 0 010 14"/></svg>
+        <span>Geluid</span>
+      </button>
+    </header>
+
+    <section class="viewer" aria-label="Interactieve film en kaart">
+      <div class="film-panel">
+        <div class="video-shell">
+          <video id="historyVideo" preload="metadata" playsinline>
+            <source src="reel_668688640594552.mp4" type="video/mp4">
+          </video>
+          <button class="center-play" id="centerPlay" type="button" aria-label="Film afspelen">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31"/><path d="M25 18l23 14-23 14z"/></svg>
+          </button>
+          <div class="film-year" aria-label="Jaar van de film">1929</div>
+        </div>
+
+        <div class="controls" aria-label="Videobediening">
+          <button class="control-button" id="jumpBack" type="button" aria-label="10 seconden terug">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6H4V2M4.5 6.5A9 9 0 112.7 15M12 7v5l4 2"/></svg>
+          </button>
+          <button class="control-button primary" id="playPause" type="button" aria-label="Afspelen">
+            <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+          </button>
+          <button class="control-button" id="jumpForward" type="button" aria-label="10 seconden vooruit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 6h4V2m-.5 4.5A9 9 0 1021.3 15M12 7v5l4 2"/></svg>
+          </button>
+          <div class="timeline">
+            <input id="timelineSlider" type="range" min="0" max="1000" value="0" aria-label="Positie in de film">
+            <div class="time-row"><span id="currentTime">0:00</span><span id="duration">0:00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="map-panel" aria-label="Kaart van de Oudegracht">
+        <div class="map-heading">
+          <div>
+            <p>VAN OOST NAAR WEST</p>
+            <h2>De route</h2>
+          </div>
+          <span class="live-badge"><i></i> LIVE</span>
+        </div>
+
+        <div class="map-shell" id="mapShell">
+          <svg class="route-map" viewBox="0 0 620 500" role="img" aria-label="Kaart van de Oudegracht van Bezembrug tot Gaardbrug">
+            <path class="water-shadow" d="M84 62 C124 96 130 145 122 196 C114 250 82 279 92 334 C102 391 154 416 158 458"/>
+            <path class="water" d="M84 62 C124 96 130 145 122 196 C114 250 82 279 92 334 C102 391 154 416 158 458"/>
+            <path class="bank" d="M58 64 C98 98 104 146 96 198 C88 253 56 282 66 336 C76 394 128 421 132 460"/>
+            <path class="bank" d="M110 60 C150 94 156 143 148 194 C140 248 108 277 118 332 C128 389 180 414 184 456"/>
+
+            <g class="streets">
+              <path d="M30 110 C180 98 310 116 590 88"/>
+              <path d="M24 218 C190 205 390 226 594 195"/>
+              <path d="M20 342 C190 328 410 349 590 320"/>
+              <path d="M190 34 C178 148 196 266 178 470"/>
+              <path d="M330 24 C314 160 332 288 314 478"/>
+              <path d="M470 36 C454 148 474 284 456 468"/>
+            </g>
+            <g class="blocks">
+              <rect x="213" y="62" width="92" height="44"/><rect x="350" y="50" width="96" height="48"/>
+              <rect x="499" y="62" width="76" height="48"/><rect x="214" y="248" width="88" height="52"/>
+              <rect x="352" y="238" width="74" height="58"/><rect x="480" y="228" width="94" height="56"/>
+              <rect x="208" y="374" width="96" height="48"/><rect x="350" y="364" width="76" height="52"/>
+              <rect x="480" y="352" width="82" height="58"/>
+            </g>
+
+            <g class="marker-group" data-index="0" transform="translate(153 422)" tabindex="0" role="button" aria-label="Gaardbrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="28" y="-5">Gaardbrug</text>
+            </g>
+            <g class="marker-group" data-index="1" transform="translate(122 340)" tabindex="0" role="button" aria-label="Stadhuisbrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="-112" y="-5">Stadhuisbrug</text>
+            </g>
+            <g class="marker-group" data-index="2" transform="translate(94 278)" tabindex="0" role="button" aria-label="Bakkerbrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="-91" y="-5">Bakkerbrug</text>
+            </g>
+            <g class="marker-group" data-index="3" transform="translate(120 196)" tabindex="0" role="button" aria-label="Maartensbrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="28" y="-5">Maartensbrug</text>
+            </g>
+            <g class="marker-group" data-index="4" transform="translate(123 112)" tabindex="0" role="button" aria-label="Viebrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="-69" y="-5">Viebrug</text>
+            </g>
+            <g class="marker-group" data-index="5" transform="translate(92 74)" tabindex="0" role="button" aria-label="Bezembrug">
+              <circle class="marker-ring" r="20"/><circle class="marker-dot" r="8"/>
+              <text x="-100" y="-5">Bezembrug</text>
+            </g>
+
+            <g class="boat-position" id="boatPosition" transform="translate(153 422)">
+              <circle class="boat-pulse" r="28"/>
+              <path d="M-15 4L0-10 15 4 9 15h-18z"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="location-card" id="locationCard" aria-live="polite">
+          <div class="location-number" id="locationNumber">01</div>
+          <div class="location-copy">
+            <p id="locationType">Startpunt</p>
+            <h3 id="locationTitle">Gaardbrug</h3>
+            <p id="locationDescription">Vanaf deze brug begint de historische vaartocht. In de film zie je hoe de stad zich langs de gracht ontvouwt.</p>
+          </div>
+          <button class="source-button" id="sourceButton" type="button" aria-label="Broninformatie tonen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <p><strong>1929</strong> — een rit langs de Oudegracht</p>
+      <p>Bron: historische filmopname, Het Utrechts Archief</p>
+    </footer>
+  </main>
+
+  <div class="source-sheet" id="sourceSheet" aria-hidden="true">
+    <button class="sheet-backdrop" id="sheetBackdrop" type="button" aria-label="Informatie sluiten"></button>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <button class="sheet-close" id="sheetClose" type="button" aria-label="Sluiten">×</button>
+      <p class="sheet-kicker">Uit het archief</p>
+      <h2 id="sheetTitle">Gaardbrug</h2>
+      <div class="sheet-grid">
+        <div class="archive-image" aria-label="Historische afbeelding">
+          <svg viewBox="0 0 480 300" aria-hidden="true">
+            <rect width="480" height="300" fill="#d9d2c4"/>
+            <rect y="180" width="480" height="120" fill="#b6b6ac"/>
+            <path d="M0 210h480M0 250h480" stroke="#72756d" stroke-width="3"/>
+            <path d="M80 180V90h70v90m180 0V70h70v110M20 180h440" fill="#ece7dc" stroke="#77796f" stroke-width="5"/>
+            <path d="M110 90v90m35-90v90M360 70v110m35-110v110" stroke="#77796f" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="sheet-text">
+          <p id="sheetDescription">Deze plaats is in de film zichtbaar vanaf dit videomoment. Meer historische bronnen worden nog aangevuld.</p>
+          <dl>
+            <div><dt>Bron</dt><dd id="sheetSource">Filmopname 1929</dd></div>
+            <div><dt>Collectie</dt><dd>Het Utrechts Archief</dd></div>
+            <div><dt>Videomoment</dt><dd id="sheetTime">0:00</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
